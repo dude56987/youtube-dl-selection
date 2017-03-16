@@ -1,10 +1,10 @@
 Package: youtube-dl-selection
-Version: 0.0.1
+Version: 0.1.0
 Section: internet
 Maintainer: Carl J Smith <BM-NBHLt5EUFVEbRCmrbVrfCyaB2c8d24U9>
-Installed-Size: 20
+Installed-Size: 28
 Priority: optional
 Architecture: all
-Depends: youtube-dl, dialog, task-spooler, xsel
+Depends: youtube-dl, parallel, xsel, dialog
 Description: Launch youtube-dl using the highlighted text as the URL given to youtube-dl.
  Launch youtube-dl using the highlighted text as the URL given to youtube-dl. This program is intended to be used as a launcher connected to a hotkey or button.
