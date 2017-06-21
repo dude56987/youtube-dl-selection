@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Name=Youtube-dl Recover
+Exec=youtube-dl-recover
+Comment=Attempt to redownload failed youtube-dl items
+Categories=Network;
+GenericName=Youtube-dl Recover
+Icon=folder-download-symbolic
+Terminal=true
+StartupNotify=true

@@ -33,10 +33,13 @@ build-deb:
 	mkdir -p debian/usr;
 	mkdir -p debian/usr/bin;
 	mkdir -p debian/usr/share/applications;
-	# copy over the files
+	# copy over the executables
 	cp -vf youtube-dl-selection.sh debian/usr/bin/youtube-dl-selection
-	# copy over the launcher
+	cp -vf youtube-dl-queue.sh debian/usr/bin/youtube-dl-queue
+	cp -vf youtube-dl-recover.sh debian/usr/bin/youtube-dl-recover
+	# copy over the launchers
 	cp -vf youtube-dl-selection.desktop debian/usr/share/applications/youtube-dl-selection.desktop
+	cp -vf youtube-dl-recover.desktop debian/usr/share/applications/youtube-dl-recover.desktop
 	# make the programs executable for everyone
 	chmod ugo+x ./debian/usr/bin/*
 	chmod go-rw ./debian/usr/bin/*
