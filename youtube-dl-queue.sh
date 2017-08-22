@@ -66,6 +66,8 @@ sem --fg --retries 10 --no-notice --ungroup --jobs 3 --id downloadQueue "echo 'P
 # check if the file was successfully downloaded by checking if the file exists
 # now this works because youtube-dl generates .part files during the download
 if [[ -f "$downloadPath/$fileName" ]];then
+	# change the modification time so the last downloaded file will be listed as such in the filesystem
+	touch "$downloadPath/$fileName"
 	# set the return message to success or failure, use a success icon or failure icon in notification
 	message="SUCCESS: Download of '$title' complete!"
 	icon="checkbox-checked-symbolic"
