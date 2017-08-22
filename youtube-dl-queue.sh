@@ -35,7 +35,7 @@ mkdir -p $downloadPath
 cd $downloadPath
 # if the url is not a valid web address exit
 echo "Scanning the selection for video links..."
-if ! echo "$selection" | grep "http";then
+if ! echo "$selection" | grep -q "http";then
 	# build and display the error message to the user
 	message="The selection '$selection' is not a valid url, youtube-dl-selection will now exit!"
 	icon="computer-fail-symbolic"
@@ -48,14 +48,14 @@ fi
 # sleeping between website pulls with youtube-dl pervents being blocked or
 # disconnected, saying processing is a lie but will probably cause less
 # confusion
-echo "Processing title..."
+echo "Downloading video metadata..."
 sleep 5
+# grab the json info of the video
+info=$(youtube-dl -j $selection)
 # figure out the tile of the selected video
-title=$(youtube-dl --get-title $selection)
-echo "Processing filename..."
-sleep 5
+title=$(echo "$info" | jq -r ".title?")
 # get the file path and escape the white spaces
-fileName="$(youtube-dl --get-filename $selection)"
+fileName=$(echo "$info" | jq -r "._filename?")
 # send a notification
 message="Added '$title' to download queue..."
 echo "$message"
