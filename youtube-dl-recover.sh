@@ -38,6 +38,8 @@ if [[ -f "$downloadPath/youtube-dl_FAILED.log" ]];then
 		echo "youtube-dl-queue ${line[0]}"
 		# launch the download
 		youtube-dl-queue ${line[0]}
+		# sleep 5 seconds between adding items to the queue
+		sleep 5
 		if [[ -f "$downloadPath/youtube-dl_FAILED.log" ]];then
 			# remove old log, if it has not been removed yet
 			rm -v $downloadPath/youtube-dl_FAILED.log
